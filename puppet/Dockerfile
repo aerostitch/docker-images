@@ -2,7 +2,7 @@
 # Docker box used for puppet client
 ####################################
 
-FROM debian:testing-slim
+FROM debian:latest
 
 Maintainer Joseph Herlant<herlantj@gmail.com>
 
