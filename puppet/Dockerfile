@@ -12,9 +12,7 @@ ENV DEBIAN_FRONTEND "noninteractive"
 RUN apt-get update && apt-get dist-upgrade -y -qq
 RUN apt-get install wget vim-tiny git -y -qq
 
-RUN . /etc/lsb-release && wget
-https://apt.puppetlabs.com/puppetlabs-release-pc1-${DISTRIB_CODENAME}.deb &&
-dpkg -i puppetlabs-release-pc1-${DISTRIB_CODENAME}.deb
+RUN . /etc/lsb-release && wget https://apt.puppetlabs.com/puppetlabs-release-pc1-${DISTRIB_CODENAME}.deb && dpkg -i puppetlabs-release-pc1-${DISTRIB_CODENAME}.deb
 RUN apt-get update && apt-get install puppet-agent
 
 RUN echo 'PATH="/opt/puppetlabs/puppet/bin/:$PATH"' >> /etc/bash.bashrc
