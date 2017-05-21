@@ -2,7 +2,7 @@
 # Docker box used for puppet client
 ####################################
 
-FROM debian:latest
+FROM ruby:latest
 
 Maintainer Joseph Herlant<herlantj@gmail.com>
 
@@ -14,6 +14,8 @@ RUN apt-get update && apt-get dist-upgrade -y -qq && apt-get install wget vim-ti
 RUN wget https://apt.puppetlabs.com/puppetlabs-release-pc1-jessie.deb && \
     dpkg -i puppetlabs-release-pc1-jessie.deb && \
     apt-get update && apt-get install puppet-agent
+
+RUN gem install --no-ri --no-rdoc bundler
 
 RUN echo 'PATH="/opt/puppetlabs/puppet/bin/:$PATH"' >> /etc/bash.bashrc
 ENTRYPOINT [ "/bin/bash" ]
