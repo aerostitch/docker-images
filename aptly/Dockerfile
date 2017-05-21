@@ -8,11 +8,10 @@ FROM ubuntu:trusty
 MAINTAINER Joseph Herlant <herlantj@gmail.com>
 
 ENV DEBIAN_FRONTEND noninteractive
-RUN echo "deb http://repo.aptly.info/ squeeze main" > /etc/apt/sources.list.d/aptly.list
-RUN gpg --keyserver keys.gnupg.net --recv-keys E083A3782A194991
-RUN gpg -a --export E083A3782A194991 | apt-key add -
-RUN apt-get update
-RUN apt-get -y install aptly
+RUN echo "deb http://repo.aptly.info/ squeeze main" > /etc/apt/sources.list.d/aptly.list && \
+    gpg --keyserver keys.gnupg.net --recv-keys 9E3E53F19C7DE460 && \
+    gpg -a --export 9E3E53F19C7DE460 | sudo apt-key add - && \
+    apt-get update && apt-get -y install aptly
 
 ADD aptly.conf /etc/aptly.conf
 VOLUME ["/var/aptly"]
