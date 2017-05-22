@@ -15,5 +15,5 @@ RUN wget https://apt.puppetlabs.com/puppetlabs-release-pc1-jessie.deb && \
     dpkg -i puppetlabs-release-pc1-jessie.deb && \
     apt-get update && apt-get install puppet-agent
 
-RUN echo 'PATH="/opt/puppetlabs/puppet/bin/:$PATH"' >> /etc/bash.bashrc
+RUN echo 'PATH="$PATH:/opt/puppetlabs/puppet/bin"' >> /etc/bash.bashrc
 ENTRYPOINT [ "/bin/bash" ]
