@@ -1,0 +1,12 @@
+syntax on                        
+" no backup files
+set backupcopy=no                                             
+set nobackup     
+set noswapfile
+" indentation
+set tabstop=2
+set softtabstop=2
+set shiftwidth=2
+set smarttab
+set smartindent
+set noexpandtab
