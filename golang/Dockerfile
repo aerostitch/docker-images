@@ -1,5 +1,8 @@
 FROM golang:latest
 
+ENV GOPATH /go
+ENV PATH ${GOPATH}/bin:${PATH}
+
 COPY vimrc /root/.vimrc
 RUN apt update && apt install -y vim git curl
 RUN mkdir -p ~/.vim/autoload ~/.vim/bundle \
@@ -11,4 +14,4 @@ RUN go get -u github.com/golang/lint/golint \
 RUN go get -u github.com/axw/gocov/gocov \
     && go install github.com/axw/gocov/gocov
 
-WORKDIR /go/src
+WORKDIR ${GOPATH}/src
