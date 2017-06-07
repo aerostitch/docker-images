@@ -1,5 +1,7 @@
 FROM golang:latest
 
+Maintainer Joseph Herlant<herlantj@gmail.com>
+
 ENV GOPATH /go
 ENV PATH ${GOPATH}/bin:${PATH}
 
