@@ -13,7 +13,8 @@ Additions:
 An example on how I usually run it.
 
 ```
-docker run -v ${PWD}:/go/src/github/aerostitch/$(basename ${PWD}) \
+export GITHUB_USER=aerostitch
+docker run -v ${PWD}:/go/src/github.com/${GITHUB_USER}/$(basename ${PWD}) \
   -v ${HOME}/.bashrc:/root/.bashrc \
   -it aerostitch/golang bash
 ```
