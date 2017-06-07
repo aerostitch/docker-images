@@ -9,7 +9,7 @@ Maintainer Joseph Herlant<herlantj@gmail.com>
 WORKDIR /root
 ENV DEBIAN_FRONTEND "noninteractive"
 
-RUN apt-get update && apt-get dist-upgrade -y -qq && apt-get install wget vim git -y -qq
+RUN apt-get update && apt-get dist-upgrade -y -qq && apt-get install wget vim-nox git -y -qq
 
 RUN wget https://apt.puppetlabs.com/puppetlabs-release-pc1-jessie.deb && \
     dpkg -i puppetlabs-release-pc1-jessie.deb && \
