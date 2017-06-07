@@ -17,14 +17,13 @@ RUN go get -u github.com/axw/gocov/gocov \
     && go install github.com/axw/gocov/gocov
 
 # Trick to make ycm work
-COPY sources.list /etc/apt/sources.list
-COPY general.pref /etc/apt/preferences.d/general.pref
+COPY testing.list /etc/apt/sources.list.d/testing.list
+COPY preferences /etc/apt/preferences
 RUN apt update && \
     apt install -y build-essential cmake python-dev python3-dev vim-nox/testing && \
-    mkdir -p ~/.vim/bundle/YouCompleteMe && \
     git clone https://github.com/Valloric/YouCompleteMe.git ~/.vim/bundle/YouCompleteMe
-WORKDIR ~/.vim/bundle/YouCompleteMe
-RUN git submodule update --init --recursive && \
+RUN cd ~/.vim/bundle/YouCompleteMe && \
+    git submodule update --init --recursive && \
     ./install.py --gocode-completer
 
 WORKDIR ${GOPATH}/src

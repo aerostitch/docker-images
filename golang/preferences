@@ -1,5 +1,5 @@
 Package: *
-Pin: release o=Debian,a=stable
+Pin: release o=Debian
 Pin-Priority: 900
 
 Package: *
