@@ -20,7 +20,7 @@ RUN go get -u github.com/axw/gocov/gocov \
 COPY testing.list /etc/apt/sources.list.d/testing.list
 COPY preferences /etc/apt/preferences
 RUN apt update && \
-    apt install -y build-essential cmake python-dev python3-dev vim-nox/testing && \
+    apt install -y build-essential cmake python-dev python3-dev liblua5.2 vim-nox/testing && \
     git clone https://github.com/Valloric/YouCompleteMe.git ~/.vim/bundle/YouCompleteMe
 RUN cd ~/.vim/bundle/YouCompleteMe && \
     git submodule update --init --recursive && \
